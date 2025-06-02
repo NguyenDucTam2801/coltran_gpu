@@ -22,6 +22,8 @@ import numpy as np
 import tensorflow.compat.v2 as tf
 
 
+
+
 def nats_to_bits(nats):
   return nats / np.log(2)
 

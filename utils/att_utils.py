@@ -22,6 +22,8 @@ import numpy as np
 import tensorflow.compat.v2 as tf
 
 
+
+
 def index_to_step(index, shape):
   """Compute step for a given nd index if we were enumerating to shape."""
   step = index[0]

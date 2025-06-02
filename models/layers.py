@@ -24,6 +24,8 @@ import math
 import operator
 import numpy as np
 import tensorflow.compat.v2 as tf
+
+
 from tensorflow.keras import layers 
 from coltran_gpu.utils import att_utils
 from coltran_gpu.utils import base_utils
