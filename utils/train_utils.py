@@ -88,13 +88,21 @@ def build_ema(config, ema_vars):
   if polyak_decay:
     ema = tf.train.ExponentialMovingAverage(polyak_decay)
     print(f'Using ema variable (type: {type(ema_vars)}):')
-    # Ensure ema_vars is a list of tf.Variable, not names
+    
+    # Extract actual variables if ema_vars is a name->variable mapping
     if isinstance(ema_vars, dict):
-      vars_to_apply = list(ema_vars.values())
+      # Ensure we get VARIABLE OBJECTS, not names
+      vars_to_apply = [var for var in ema_vars.values() if isinstance(var, tf.Variable)]
     else:
-      vars_to_apply = ema_vars
-    ema.apply(vars_to_apply)
-    logging.info('Built with exponential moving average.')
+      # Handle list input - filter out non-variables
+      vars_to_apply = [var for var in ema_vars if isinstance(var, tf.Variable)]
+    
+    # Validate we have variables
+    if not vars_to_apply:
+      logging.warning("No valid variables found for EMA!")
+    else:
+      ema.apply(vars_to_apply)
+      logging.info('Built with exponential moving average.')
   return ema
 
 
