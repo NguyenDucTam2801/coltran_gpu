@@ -21,7 +21,7 @@ the AxialTransformer with conditional self-attention layers.
 See Section 3 and Section 4.1 of https://openreview.net/pdf?id=5NA1PinlGFu
 for more details.
 """
-import tensorflo as tf
+import tensorflow as tf
 
 
 from tensorflow.keras import layers  # ✅
