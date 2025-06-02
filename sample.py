@@ -28,7 +28,8 @@ from absl import logging
 from ml_collections import config_flags
 import numpy as np
 
-import tensorflow.compat.v2 as tf
+import tensorflow.compat as tf
+
 
 from coltran import datasets
 from coltran.models import colorizer

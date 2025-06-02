@@ -19,7 +19,8 @@ import functools
 import itertools
 import operator
 import numpy as np
-import tensorflow.compat.v2 as tf
+import tensorflow.compat as tf
+
 
 
 def index_to_step(index, shape):

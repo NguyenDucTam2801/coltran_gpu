@@ -76,7 +76,8 @@ import numpy as np
 from coltran import visualizer
 
 
-import tensorflow.compat.v2 as tf
+import tensorflow.compat as tf
+
 
 from coltran import datasets
 from coltran.models import colorizer
