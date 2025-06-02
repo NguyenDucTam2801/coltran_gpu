@@ -102,7 +102,7 @@ def setup_strategy(config, master, devices_per_worker, mode, accelerator_type):
     strategy = tf.distribute.experimental.TPUStrategy(cluster)
     num_cores = topology.num_tasks * topology.num_tpus_per_task
   else:
-    for gpu in tf.config.experimental.list_physicalx_devices('GPU'):
+    for gpu in tf.config.experimental.list_physical_devices('GPU'):
       tf.config.experimental.set_memory_growth(gpu, True)
     strategy = None
     num_cores = devices_per_worker
