@@ -27,7 +27,7 @@ from __future__ import division
 from __future__ import print_function
 
 import tensorflow.compat.v2 as tf
-from tensorflow.compat.v2.keras import layers
+from tensorflow.keras import layers 
 from coltran_gpu.models import layers as coltran_layers
 from coltran_gpu.utils import base_utils
 
