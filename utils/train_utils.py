@@ -87,7 +87,7 @@ def build_ema(config, ema_vars):
   polyak_decay = config.get('polyak_decay', 0.0)
   if polyak_decay:
     ema = tf.train.ExponentialMovingAverage(polyak_decay)
-    print('Using ema variable %f.' % ema_vars)
+    print(f'Using ema variable:', ema_vars)
     ema.apply(ema_vars)
     logging.info('Built with exponential moving average.')
   return ema
