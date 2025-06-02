@@ -32,10 +32,10 @@ from ml_collections import config_flags
 import tensorflow as tf
 import tensorflow_datasets as tfds
 
-from coltran import datasets
-from coltran.models import colorizer
-from coltran.models import upsampler
-from coltran.utils import train_utils
+from coltran_gpu import datasets
+from coltran_gpu.models import colorizer
+from coltran_gpu.models import upsampler
+from coltran_gpu.utils import train_utils
 
 
 # pylint: disable=g-direct-tensorflow-import

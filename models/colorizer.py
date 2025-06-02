@@ -23,9 +23,9 @@ for more details.
 """
 import tensorflow.compat.v2 as tf
 from tensorflow.keras import layers  # ✅
-from coltran.models import core
-from coltran.models import layers as coltran_layers
-from coltran.utils import base_utils
+from coltran_gpu.models import core
+from coltran_gpu.models import layers as coltran_layers
+from coltran_gpu.utils import base_utils
 
 
 class ColTranCore(tf.keras.Model):
