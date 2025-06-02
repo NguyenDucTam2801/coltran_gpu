@@ -182,7 +182,22 @@ def get_ema_vars(ema, model):
           ema.average(v).name: ema.average(v) for v in model.trainable_variables
       }
     except:  # pylint: disable=bare-except
-      ema.apply(model.trainable_variables)
+      ema_vars=model.trainable_variables
+      if isinstance(ema_vars, dict):
+        # Ensure we get VARIABLE OBJECTS, not names
+        vars_to_apply = [var for var in ema_vars.values() if isinstance(var, tf.Variable)]
+      else:
+        # Handle list input - filter out non-variables
+        vars_to_apply = [var for var in ema_vars if isinstance(var, tf.Variable)]
+    
+      # Validate we have variables
+      if not vars_to_apply:
+        logging.warning("No valid variables found for EMA!")
+      else:
+        ema.apply(vars_to_apply)
+        logging.info('Built with exponential moving average.')
+        
+      ema.apply(vars_to_apply)
       return {
           ema.average(v).name: ema.average(v) for v in model.trainable_variables
       }
